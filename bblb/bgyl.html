@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的图片库</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>我的图片库</h1>
+    <div class="grid">
+        <img src="./bbby.jpg" alt="巴巴博一" width="200" height="200">
+        <img src="./bblb.jpg" alt="比比拉布" width="200" height="200">
+        <img src="./bgyl.jpg" alt="八嘎呀路" width="200" height="200">
+        <img src="./gggg.jpg" alt="咕咕嘎嘎" width="200" height="200">
+        <img src="./wbbb.jpg" alt="歪巴巴卜" width="200" height="200">
+        <img src="./wddd.jpg" alt="我的刀盾" width="200" height="200">
+    </div>
+<script>
+    const audios = {
+        "bbby.jpg": "003.mp3",
+        "bblb.jpg": "002.mp3",
+        "bgyl.jpg": "006.mp3",
+        "gggg.jpg": "004.mp3",
+        "wbbb.jpg": "001.mp3",
+        "wddd.jpg": "005.mp3"
+    };
+    document.querySelectorAll('.grid img').forEach(img => {
+        img.addEventListener('click', () => {
+            let audioFile = audios[img.src.split('/').pop()];
+            if (audioFile) {
+                new Audio(audioFile).play();
+            }
+        });
+    });
+</script>
+</body>
+</html>
